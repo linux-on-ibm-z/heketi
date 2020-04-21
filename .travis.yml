@@ -28,7 +28,7 @@ matrix:
   - go: "1.13"
     name: Test using Go 1.13
     arch: amd64
-  - go: "1.13.2"
+  - go: "1.13.3"
     name: Test using Go 1.13
     arch: s390x
 script:
