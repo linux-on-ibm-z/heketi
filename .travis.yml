@@ -28,20 +28,9 @@ matrix:
   - go: "1.13"
     name: Test using Go 1.13
     arch: s390x
-  - go: "1.13.1"
-    name: Test using Go 1.13.1
+  - go: "1.14"
+    name: Test using Go 1.14
     arch: s390x
-  - go: "1.13.2"
-    name: Test using Go 1.13.2
-    arch: s390x
-  - go: "1.13.3"
-    name: Test using Go 1.13.3
-    arch: s390x
-  - go: "1.13.4"
-    name: Test using Go 1.13.4
-    arch: s390x
-  - go: "1.13.5"
-    name: Test using Go 1.13.5
-    arch: s390x
+ 
 script:
 - make all test COVERAGE=true TESTOPTIONS="-vcstdout" && bash .travis-coverage
