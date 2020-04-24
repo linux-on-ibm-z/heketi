@@ -26,8 +26,12 @@ git:
 matrix:
   include:
   - go: "1.14"
-    name: Test using Go 1.10 on s390
+    name: Test using Go 1.14 on s390
     arch: s390x
+  - go: "1.14"
+    script: make release
+    name: make release on Go 1.14
+    arch: amd64
   #- go: "1.11"
   #  name: Test using Go 1.11 on s390
   #  arch: s390x
