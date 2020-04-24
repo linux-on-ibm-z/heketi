@@ -8,13 +8,13 @@ before_install:
 install:
 - bash .travis-fork-fix
 - cd ../.. && ls -l && rm -rf heketi && mv linux-on-ibm-z heketi && cd heketi/heketi
-- uname -r
-- go get github.com/mattn/goveralls -v
+- go get github.com/mattn/goveralls
 - go get github.com/wadey/gocovmerge
 - if [[ $(uname -m) == 's390x' ]]; then
       wget https://github.com/Masterminds/glide/releases/download/v0.13.1/glide-v0.13.1-linux-s390x.tar.gz;
       tar -xzf glide-v0.13.1-linux-s390x.tar.gz linux-s390x/glide --strip=1;
       export PATH=$PWD:$PATH;
+      sudo rm -rf $HOME/.cache/pip;
   else
       curl https://glide.sh/get | sh;
   fi
@@ -50,5 +50,4 @@ matrix:
 
  
 script:
-- if [[ $(uname -m) == 's390x' ]]; then sudo rm -rf $HOME/.cache/pip; fi
 - make all test COVERAGE=true TESTOPTIONS="-vcstdout" && bash .travis-coverage
