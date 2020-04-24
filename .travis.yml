@@ -37,7 +37,7 @@ matrix:
  
 script:
 - if [[ $(uname -m) == 's390x' ]]; then sudo rm -rf $HOME/.cache/pip; fi
-- export PATCH_URL="https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/Heketi/9.0.0/patch"
-- curl -o glide.lock.diff $PATCH_URL/glide.lock.diff
-- patch --ignore-whitespace glide.lock < glide.lock.diff
+#- export PATCH_URL="https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/Heketi/9.0.0/patch"
+#- curl -o glide.lock.diff $PATCH_URL/glide.lock.diff
+#- patch --ignore-whitespace glide.lock < glide.lock.diff
 - make all test COVERAGE=true TESTOPTIONS="-vcstdout" && bash .travis-coverage
