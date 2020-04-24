@@ -36,7 +36,7 @@ matrix:
     arch: s390x
  
 script:
-- export PATCH_URL="https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/Heketi/${PACKAGE_VERSION}/patch
+- export PATCH_URL="https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/Heketi/9.0.0/patch
 - curl -o glide.lock.diff $PATCH_URL/glide.lock.diff
 - patch --ignore-whitespace glide.lock < glide.lock.diff
 - make all test COVERAGE=true TESTOPTIONS="-vcstdout" && bash .travis-coverage
