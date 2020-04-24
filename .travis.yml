@@ -9,7 +9,7 @@ install:
 - bash .travis-fork-fix
 - cd ../.. && ls -l && rm -rf heketi && mv linux-on-ibm-z heketi && cd heketi/heketi
 - uname -r
-- go get github.com/mattn/goveralls
+- go get github.com/mattn/goveralls -v
 - go get github.com/wadey/gocovmerge
 - if [[ $(uname -m) == 's390x' ]]; then
       wget https://github.com/Masterminds/glide/releases/download/v0.13.1/glide-v0.13.1-linux-s390x.tar.gz;
@@ -25,13 +25,13 @@ git:
   depth: 9999999
 matrix:
   include:
-  - go: "1.14"
-    name: Test using Go 1.14 on s390
+  - go: "1.13"
+    name: Test using Go 1.13 on s390
     arch: s390x
-  - go: "1.14"
-    script: make release
-    name: make release on Go 1.14
-    arch: amd64
+#- go: "1.14"
+  #  script: make release
+   # name: make release on Go 1.14
+  #  arch: amd64
   #- go: "1.11"
   #  name: Test using Go 1.11 on s390
   #  arch: s390x
